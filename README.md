@@ -30,3 +30,7 @@ This repository contains scripts and configuration files for training and evalua
 ### Other Scripts:
 
 The `scripts/` directory may contain other utility scripts, experimental code, or duplicates (e.g., `patch2.py`, `tune2.py`, `yolo_example_copy.py`). The core functionality is captured by the scripts listed above. 
+
+### Google Drive For Blender Sim and Backgrounds
+
+To access the full simulation in Blender along with the backgrounds, go HERE: https://drive.google.com/drive/folders/131eGJ5P7uJMqY3SAge9DGGt4Ew7bsrtA?usp=drive_link
