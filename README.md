@@ -1,11 +1,8 @@
-# RhinoSim
+# Rhinoceros Detection
 
-
-Python and Blender based framework for the generation of synthetic rhino data. 
+This is the official repository for the paper ``Automated Rhinoceros Detection in Satellite Imagery using Deep Learning'' *Scienticic Reports*. The repository contains scripts and configuration files for training and evaluating a YOLOv12 object detection model to detect rhinoceroses in satellite imagery, including a pipeline for generating synthetic training data using Blender. 
 
 ## Repository Structure and Usage
-
-This repository contains scripts and configuration files for training and evaluating a YOLOv12 object detection model to detect rhinoceroses in satellite imagery, including a pipeline for generating synthetic training data using Blender.
 
 ### Key Directories:
 
@@ -15,7 +12,7 @@ This repository contains scripts and configuration files for training and evalua
 
 ### Core Scripts (`scripts/`):
 
-*   `sim.py`: Uses the Blender Python API (`bpy`) to generate synthetic satellite images of rhinoceroses. It sets up a 3D scene, places rhino models randomly on a textured plane, configures lighting and camera, and renders images with corresponding labels. This is used to augment the training data as described in the paper.
+*   `sim.py`: Uses the [Blender Python API](https://pypi.org/project/bpy/) (`bpy`) to generate synthetic satellite images of rhinoceroses. It sets up a 3D scene, places rhino models randomly on a textured plane, configures lighting and camera, and renders images with corresponding labels. This is used to augment the training data as described in the paper.
 *   `patch.py`: Implements the image tiling strategy mentioned in the paper. It takes large satellite images (e.g., TIFFs) and corresponding annotation files (YOLO format) and divides them into smaller, overlapping patches suitable for model training (e.g., 512x512 pixels). It adjusts annotation coordinates for each patch.
 *   `coco2yolo.py` (or `script.py`): Converts object detection annotations from COCO JSON format to the YOLO `.txt` format required for training. It reads a COCO file, converts bounding box coordinates, and creates individual label files for each image, organizing them into the necessary directory structure.
 *   `yolo_run.py`: Executes the YOLOv12 model training process using the `ultralytics` library. It loads a base model, applies hyperparameters from a specified `.yaml` file (e.g., `hyperparams/best_hyp.yaml`), uses a dataset configuration from `sets/`, and runs the training loop with defined settings (epochs, image size, augmentation, etc.).
